@@ -1,0 +1,90 @@
+# Rime schema settings
+# encoding: utf-8
+
+schema:
+  schema_id: quick_win
+  name: 速成韻
+  version: "0.1"
+  author:
+    - Zeuxis.Lo <seekstudio@gmail.com>
+  description: |
+    速成韻
+    - 與 Windows 相似的列表排序 (quick_win.dict.yaml/sort/original)
+    - 不使用全形符號
+    - 可以 Enter 選字
+    - 可以 Space 換頁
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: ascii_punct
+    states: [ ，。, ，． ]
+  - name: simplification
+    states: [ 漢字, 汉字 ]
+  - name: extended_charset
+    states: [ 通用, 增廣 ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - table_translator
+  filters:
+    - simplifier
+    - uniquifier
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " ;'"
+
+translator:
+  dictionary: quick_win
+  enable_charset_filter: true
+  enable_sentence: false # enter multi word in once
+  enable_encoder: true
+  encode_commit_history: true
+  enable_user_dict: false
+  max_phrase_length: 2
+  preedit_format:
+    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|"
+  comment_format:
+    - "xlit|abcdefghijklmnopqrstuvwxyz~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符～|"
+  disable_user_dict_for_patterns:
+    - "^z.*$"
+    - "^yyy.*$"
+  initial_quality: 0.75
+
+punctuator:
+  # Disable full shape
+  full_shape:
+  half_shape:
+    import_preset: default
+
+key_binder:
+  import_preset: default
+  bindings:
+    - { when: composing, accept: Return, send: space }
+    - { when: composing, accept: space, send: Page_Down }
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "`[a-z]*'?$"
