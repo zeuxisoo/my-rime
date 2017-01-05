@@ -52,6 +52,8 @@ engine:
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
   delimiter: " ;'"
+  algebra:
+    - 'derive/^([^z])\w+(\w)$/$1$2/'  # 取倉頡首尾二碼爲速成碼
 
 translator:
   dictionary: quick_win
@@ -62,7 +64,7 @@ translator:
   enable_user_dict: false
   max_phrase_length: 2
   preedit_format:
-    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|"
+    - "xlit|abcdefghijklmnopqrstuvwxyz;'|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符··|"
   comment_format:
     - "xlit|abcdefghijklmnopqrstuvwxyz~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符～|"
   disable_user_dict_for_patterns:
@@ -79,8 +81,8 @@ punctuator:
 key_binder:
   import_preset: default
   bindings:
-    - { when: composing, accept: Return, send: space }
-    - { when: composing, accept: space, send: Page_Down }
+    - { when: has_menu, accept: Return, send: space }
+    - { when: has_menu, accept: space, send: Page_Down }
 
 recognizer:
   import_preset: default
