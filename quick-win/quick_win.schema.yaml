@@ -58,11 +58,11 @@ speller:
 translator:
   dictionary: quick_win
   enable_charset_filter: true
-  enable_sentence: false # enter multi word in once
+  enable_sentence: false # 否是支持連續輸入多個字根 顯示出候選句
   enable_encoder: true
   encode_commit_history: true
   enable_user_dict: false
-  enable_completion: true
+  enable_completion: true # 顯示下一個字根會組成什麼字 (例如: 當輸入 你 時, 輸入 竹 碼, 會在候選字的右邊顯示下一碼是什麼)
   max_phrase_length: 2
   preedit_format:
     - "xlit|abcdefghijklmnopqrstuvwxyz;'|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符··|"
