@@ -81,9 +81,15 @@ case $COMMAND in
         uninstall
     ;;
 
+    reinstall)
+        uninstall
+        install
+    ;;
+
     *)
         echo "- install"
         echo "- uninstall"
+        echo "- reinstall"
     ;;
 
 esac
