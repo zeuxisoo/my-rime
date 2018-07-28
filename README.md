@@ -8,6 +8,10 @@ Uninstall
 
     bash setup.sh uninstall
 
+Reinstall (if you updated the dict file, you may need this command to re-deploy the dict file)
+
+    bash setup.sh reinstall
+
 ### Note
 
 Please install the `Squirrel` app first
