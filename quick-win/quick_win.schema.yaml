@@ -73,6 +73,9 @@ translator:
     - "^yyy.*$"
   initial_quality: 0.75
 
+simplifier:
+  tips: all  # 簡化字模式下提示對應的傳統漢字
+
 punctuator:
   # Disable full shape
   full_shape:
