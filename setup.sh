@@ -38,9 +38,9 @@ function deploy_rime_root {
 function install {
     echo "Installing"
 
-	for yaml in `ls ./quick-win`; do
+	for yaml in `ls ./my-quick`; do
         echo "> copying ... $yaml"
-        cp -Rf "./quick-win/$yaml" "$MY_RIME_ROOT/$yaml"
+        cp -Rf "./my-quick/$yaml" "$MY_RIME_ROOT/$yaml"
     done
 
     deploy && sleep 10
@@ -51,7 +51,7 @@ function install {
 function uninstall {
     echo "Uninstalling"
 
-    for yaml in `ls ./quick-win`; do
+    for yaml in `ls ./my-quick`; do
         echo "> removing ... $yaml"
         rm -rf "$MY_RIME_ROOT/$yaml"
     done

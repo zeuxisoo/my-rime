@@ -1,5 +1,6 @@
 patch:
   schema_list:
   - schema: quick_win
+  - schema: quick3_ibus
   menu:
     page_size: 9

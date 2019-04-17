@@ -1,15 +1,14 @@
-# Rime schema settings
 # encoding: utf-8
 
 schema:
-  schema_id: quick_win
-  name: 速成韻
-  version: "0.1"
+  schema_id: quick3_ibus
+  name: 速成三代 (ibus)
+  version: "0.10"
   author:
     - Zeuxis.Lo <seekstudio@gmail.com>
   description: |
-    速成韻
-    - 與 Windows 相似的列表排序 (quick_win.dict.yaml/sort/original)
+    速成三代
+    - ibus 版
     - 不使用全形符號
     - 可以 Enter 選字
     - 可以 Space 換頁
@@ -24,6 +23,8 @@ switches:
     states: [ 漢字, 汉字 ]
   - name: extended_charset
     states: [ 通用, 增廣 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
 
 engine:
   processors:
@@ -56,7 +57,7 @@ speller:
     - 'derive/^([^z])\w+(\w)$/$1$2/'  # 取倉頡首尾二碼爲速成碼
 
 translator:
-  dictionary: quick_win
+  dictionary: quick3_ibus
   enable_charset_filter: true
   enable_sentence: false # 否是支持連續輸入多個字根 顯示出候選句
   enable_encoder: true
