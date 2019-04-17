@@ -16,7 +16,7 @@ function deploy {
     open "/Library/Input Methods/Squirrel.app"
 }
 
-function deloy_rime_root {
+function deploy_rime_root {
     # For first run
     echo "Environment checking"
 
@@ -73,7 +73,7 @@ COMMAND=${@:$OPTIND:1}
 case $COMMAND in
 
     install)
-        deloy_rime_root
+        deploy_rime_root
         install
     ;;
 
