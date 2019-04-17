@@ -38,7 +38,7 @@ function deploy_rime_root {
 function install {
     echo "Installing"
 
-	for yaml in `ls ./my-quick`; do
+    for yaml in `ls ./my-quick`; do
         echo "> copying ... $yaml"
         cp -Rf "./my-quick/$yaml" "$MY_RIME_ROOT/$yaml"
     done
