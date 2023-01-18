@@ -46,9 +46,11 @@ engine:
     - punct_translator
     - reverse_lookup_translator
     - table_translator
+    - lua_translator@date_translator
   filters:
     - simplifier
     - uniquifier
+    - lua_filter@single_char_first_filter
 
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
