@@ -6,7 +6,7 @@ patch:
     font_point: 20
     horizontal: false
     line_spacing: 10
-    font_face: "STXihei"
+    font_face: "LXGW WenKai Mono TC" # https://github.com/lxgw/LxgwWenkaiTC/releases
     corner_radius: 5
     color_scheme: google
     inline_preedit: true # 將輸入字根顯示在當前的應用程式裡面
