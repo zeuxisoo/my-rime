@@ -12,6 +12,8 @@ schema:
     - 不使用全形符號
     - 可以 Enter 選字
     - 可以 Space 換頁
+  dependencies:
+    - cangjie5
 
 switches:
   - name: ascii_mode
@@ -39,6 +41,7 @@ engine:
   segmentors:
     - ascii_segmentor
     - matcher
+    - affix_segmentor@cangjie5
     - abc_segmentor
     - punct_segmentor
     - fallback_segmentor
@@ -46,6 +49,7 @@ engine:
     - punct_translator
     - reverse_lookup_translator
     - table_translator
+    - table_translator@cangjie5
     - lua_translator@date_translator
   filters:
     - simplifier
@@ -90,7 +94,25 @@ key_binder:
   bindings:
     - { when: has_menu, accept: Return, send: space }
     - { when: has_menu, accept: space, send: Page_Down }
+
 recognizer:
   import_preset: default
   patterns:
     reverse_lookup: "`[a-z]*'?$"
+    cangjie5: "^v[a-z]*;?$"
+
+cangjie5:
+  tag: cangjie5
+  dictionary: cangjie5
+  enable_user_dict: false
+  prefix: "v"
+  suffix: ";"
+  tips: 〔倉頡五代〕
+  preedit_format:
+    - 'xform/^([a-z]*)$/$1\t（\U$1\E）/'
+    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|"
+  comment_format:
+    - "xlit|abcdefghijklmnopqrstuvwxyz~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符～|"
+  disable_user_dict_for_patterns:
+    - "^z.*$"
+    - "^yyy.*$"
